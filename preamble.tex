@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{bbm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsthm}
+
+% general macros
+\DeclareMathOperator{\diff}{d \!}
+\DeclareMathOperator{\Loperator}{L}
+\renewcommand{\L}{\Loperator}
+\newcommand{\iid}{\text{i.i.d.}}
+
+
+
+
+% xcolor
+\definecolor{question}{RGB}{80, 150, 255}
+
+% theorems
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+% GREY BOXES
+\newmdenv[%
+  backgroundcolor=gray!20, % Grey background color
+  linewidth=1pt,           % No frame line
+  linecolor=black,
+  roundcorner=10pt,        % Rounded corners
+  skipabove=10pt,       % Space above the box
+  skipbelow=10pt,        % Space below the box
+  innerleftmargin=10pt,     % Left padding
+  innerrightmargin=10pt,    % Right padding
+  innertopmargin=10pt,      % Top padding
+  innerbottommargin=10pt    % Bottom padding
+]{greybox}
+
+\newmdenv[%
+  backgroundcolor=gray!10, % Grey background color
+  linewidth=0pt,           % No frame line
+  roundcorner=10pt,        % Rounded corners
+  skipabove=10pt,       % Space above the box
+  skipbelow=10pt,        % Space below the box
+  innerleftmargin=10pt,     % Left padding
+  innerrightmargin=10pt,    % Right padding
+  innertopmargin=10pt,      % Top padding
+  innerbottommargin=10pt    % Bottom padding
+]{lightbox}

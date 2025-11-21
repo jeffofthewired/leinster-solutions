@@ -1,0 +1,62 @@
+\section*{Chapter 0}
+
+\begin{enumerate}
+    \item[\textbf{0.10}]
+    \textcolor{question}{
+        Let $S$ be a set.
+        The indiscrete topological space $I(S)$ is the space whose set of points
+        is $S$ and whose only open subsets are $\emptyset$ and $S$ itself.
+        Find a universal property satisfied by the space $I(S)$.
+    }
+
+    Define $i:S\to I(S)$ as the identity function.\\
+    The universal property is as follows:
+
+    For all topological spaces $X$, for all functions $f:X\to S$,\\
+    there exists a unique continuous function $\tilde f: X\to I(S)$
+    such that $\tilde f = i\circ f$.
+
+    \item[\textbf{0.11}]
+    \textcolor{question}{
+        Denote by $\mathbb Z[x]$ the polynomial ring over $\mathbb Z$ in one variable.
+    }
+    \begin{enumerate}
+        \item 
+        \textcolor{question}{
+            Prove that for all rings $R$ and all $r\in R$, there exists
+            a unique ring homomorphism $\phi_r : \mathbb Z[x]\to R$ such that $\phi_r(x)=r$.
+        }
+
+        \textbf{Existence}
+
+        Define $\phi_r$ to map polynomials to their evaluation at $x=r$, that is $\phi_r = p\mapsto p(r)$.\\
+        Then $\phi_r(x)=r$ trivially follows. To show that this is a ring homomorphism, we note 
+        $$\phi_r(p(x)q(x))=(pq)(r) = p(r)q(r) = \phi_r(p(x))\phi_r(q(x)),$$
+        $$\phi_r(p(x)+q(x))=(p+q)(r) = p(r)+q(r) = \phi_r(p(x))+\phi_r(q(x)).$$
+
+        \textbf{Uniqueness}
+
+        Suppose that $\psi_r:\mathbb Z[x]\to R$ is another ring homomorphism such that $\psi_r(x)=r$.\\
+        For all $k\in\mathbb N$,
+        $$\psi_r(x^k) = \psi_r(x)^k= r^k = \phi_r(x^k).$$
+        For each polynomial $p(x)=\sum_{k=0}^n a_kx^k$,
+        $$\psi_r\!(p(x)) 
+        = \psi_r\!\left(\sum_{k=0}^na_kx^k\right) 
+        = \sum_{k=0}^n a_k\psi_r\!\left(x^k\right) 
+        =\sum_{k=0}^n a_kr^k
+        = \phi_r(p(x)).$$
+
+        \pagebreak
+
+        \item 
+            \textcolor{question}{Let $A$ be a ring and $a\in A$. Suppose that for all rings $R$
+            and all $r\in R$, there exists a unique ring homomorphism
+            $\phi:A\to R$ such that $\phi(a)=r$. 
+            Prove that there is a unique isomorphism $\iota : \mathbb Z[x]\to A$
+            such that $\iota (x)=a$.
+        }
+        
+    \end{enumerate}
+    
+
+\end{enumerate}
