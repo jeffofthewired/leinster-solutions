@@ -118,8 +118,24 @@
 
 
     \textcolor{question}{
-        \textbf{Extension:} Prove that any two objects satisfying this property are isomorphic.
+        \textbf{Extension:} Prove that any other object satisfying the property is isomorphic to $\ker\theta$.
     }
+
+    Let $(Y,\psi)$ be another pair satisfying the universal property.
+
+    Since $(Y,\psi)$ satisfies the universal property, for all $K$ and $\phi:K\to G$,\\
+    namely $\ker\theta$ and $\iota$, such that there exists a unique $g$ such that $\psi\circ g=\iota$.
+
+    Since $(\ker\theta,\iota)$ satisfies the universal property, for all $K$ and $\phi:K\to G$,\\
+    namely $Y$ and $\psi$, such that there exists a unique $f$ such that $\iota\circ f=\psi$.
+
+    Substituting $\psi\circ g=\iota$ into $\iota\circ f=\psi$ we get $\psi\circ g\circ f = \psi$.\\
+    Substituting $\iota\circ f=\psi$ into $\psi\circ g=\iota$ we get $\iota\circ f\circ g = \iota$.
+
+    Since $(Y,\psi)$ satisfies the universal property, for all $K$ and $\phi:K\to G$,\\
+    namely $Y$ and $\psi$, such that there exists a unique $h$ such that $\psi\circ h=\psi$.\\
+    But both $g\circ f$ and the $\text{id}_Y$ satisfy this property, thus $g\circ f = \text{id}_Y$.\\
+    Similarly we can show $f\circ g = \text{id}_{\ker\theta}$, thus proving $Y\cong\ker\theta$.
 
     \pagebreak
 
