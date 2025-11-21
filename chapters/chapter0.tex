@@ -15,10 +15,55 @@
     For all topological spaces $X$, for all functions $f:X\to S$,\\
     there exists a unique continuous function $\tilde f: X\to I(S)$
     such that $\tilde f = i\circ f$.
+
+    \begin{center}
+        \begin{tikzcd}
+            \forall X \rar{\forall f}\drar[dotted, "\exists !\tilde f"description] & S\dar{i}\\
+            & I(S)
+        \end{tikzcd}
+    \end{center}
+
+    \textcolor{question}{
+        \textbf{Extension:} Prove that $(I(S), i)$ satisfies this universal property.
+    }
+
+    It suffices to show that $\tilde f = i\circ f$ is a continuous map.
+    The topology on $I(S)$ is $\{\emptyset, S\}$.\\
+    The $\tilde f$-preimage of $\emptyset$ is $\emptyset$ which is open.
+    The $\tilde f$-preimage of $S$ is $X$ which is open.
+
+    \textcolor{question}{
+        \textbf{Extension:} Prove that any other object satisfying the property is isomorphic to $I(S)$.
+    }
+
+    Suppose that $(T,j)$ is another pair which satisfies the universal property.
+
+    Since $(T,j)$ satisfies the universal property, for all $X$ and $f:X\to S$,\\
+    namely $I(S)$ and $g:I(S)\to S$, the composition $j\circ g:I(S)\to T$ is continuous.
+
+    \textcolor{red}{I might try specifying $g = i$?}
+
+    Since $(I(S),i)$ satisfies the universal property, for all $X$ and $f:X\to S$,\\
+    namely $T$ and $f:T\to S$, the composition $i\circ f:T\to I(S)$ is continuous.
+
+    Since compositions of continuous maps are continuous, the maps
+    $$i\circ f\circ j\circ g: I(S)\to I(S) \qquad\text{and}\qquad j\circ g\circ i\circ f:T\to T,$$
+    are continuous.
+
+    \textcolor{red}{
+        If we specify $g=i$ then we have than
+        $f\circ j: I(S)\to I(S)$ and $j\circ f: T\to T$ are continuous.
+    }
+
+    \textcolor{red}{Stuck on this question...}
+
+
+    \pagebreak
+
     \item[\textbf{0.11}]
     \textcolor{question}{
-        Fix a group homomorphism $\phi:G\to H$.\\
-        Find a universal property satisfied by the pair $(\ker(\theta),\iota)$
+        Fix a group homomorphism $\phi:G\to H$. Let $\varepsilon$ denote any trivial homomorphism.\\
+        Find a universal property satisfied by the pair $(\ker\theta,\iota)$
         of the diagram.
     }
 
@@ -28,15 +73,62 @@
         }
     \end{center}
 
-    For all $K$ and $\phi:K\to G$ such that $\theta\circ\phi = \epsilon\circ\phi$,\\
-    there exists a unique $f:K\to\ker\theta$ such that $\phi = f\circ\iota$.
+    The above property can be expressed in terms of the commutative diagram
+    \begin{center}
+        \begin{tikzcd}
+
+            \ker \theta \rar[hook]{\iota}\arrow[dr, "\varepsilon"'] &
+            G\dar{\theta}\\
+            & H
+        \end{tikzcd}
+    \end{center}
+
+
+    The universal property for $(\ker \theta, \iota)$ is as follows:\\
+    For all $K$ and $\phi:K\to G$ such that $\theta\circ\phi = \varepsilon$,\\
+    there exists a unique $f:K\to\ker\theta$ such that $\phi = f\circ\iota$.\\
+
+    \begin{center}
+        \begin{tikzcd}[row sep=small]
+            \forall K\arrow[dd,dotted,"\exists !f"description]\arrow[dr,"\forall\phi"]\arrow[drr, bend left,"\forall\varepsilon"]
+            & & \\ &
+            G\rar{\theta} & H\\
+            \ker\theta\arrow[ur, hook, "\iota"']\arrow[urr, bend right, "\varepsilon"'] & &
+        \end{tikzcd}
+    \end{center}
+
+    \textcolor{question}{
+        \textbf{Extension:} Prove that $(\ker\theta, \iota)$ satisfies this universal property.
+    }
+
+    \textbf{Existence}
+
+    Let $K$ be a group and $\phi:K\to G$ be a homomorphism such that $\theta\circ\phi = \varepsilon$.
+    By the definition of the trivial homomorphism $\varepsilon$,
+    for any $x\in K$, we have $(\theta\circ\phi)(x) = 0$, and thus $\phi(x)\in\ker\theta$.
+    Thus the range of $\phi$ is $\ker \theta$. Let $f=x\mapsto \phi(x)$, then $f\circ i = \phi\circ i = \phi$ as required.
+
+    \textbf{Uniqueness}
+
+    Suppose $f':K\to\ker\theta$ such that $\iota\circ f = \phi = \iota\circ f'$.
+    The inclusion map $\iota$ is injective so
+    \begin{align*}
+        \iota\circ f = \iota\circ f' \implies f = f'.
+    \end{align*}
+
+
+    \textcolor{question}{
+        \textbf{Extension:} Prove that any two objects satisfying this property are isomorphic.
+    }
+
+    \pagebreak
 
     \item[\textbf{0.12}]
     \textcolor{question}{
         Verify the universal property for the topological space covered by two open subsets \\
         $X = U\cup V$, and the two inclusion maps
         $i':V\to X$ and $j':U\to X$:\\
-        For all $Y$, and $g:V\to Y$ and $f:U\to Y$,\\
+        For all $Y$ and $g:V\to Y$ and $f:U\to Y$,\\
         there exists a unique $h:X\to Y$ such that $g=h\circ i'$ and $f=h\circ j'$.
     }
 
@@ -46,7 +138,7 @@
         }
     \end{center}
 
-    \pagebreak
+    I do not know topology so I'll come back to this later.
 
     \item[\textbf{0.13}]
     \textcolor{question}{
@@ -78,8 +170,6 @@
         =\sum_{k=0}^n a_kr^k
         = \phi_r(p(x)).$$
 
-        \pagebreak
-
         \item 
             \textcolor{question}{Let $A$ be a ring and $a\in A$. Suppose that for all rings $R$
             and all $r\in R$, there exists a unique ring homomorphism
@@ -90,5 +180,19 @@
 
     \end{enumerate}
     
-
+    \item[\textbf{0.14}]
+    \textcolor{question}{
+        Let $X$ and $Y$ be vector spaces. For the purposes of this exercise only, a \emph{cone}
+        is a triple $(V,f_1, f_2)$ consisting of a vector space $V$, a linear map $f_1:V\to X$
+        and a linear map $f_2:V\to Y$.
+    }
+    \begin{enumerate}
+        \item
+        \textcolor{question}{
+            Find a cone $(P,p_1,p_2)$ with the following property:\\
+            For all cones $(V,f_1, f_2)$, \\
+            there exists a unique linear map $f:V\to P$,
+            such that $p_1\circ f=f_1$ and $p_2\circ f = f_2$.
+        }
+    \end{enumerate}
 \end{enumerate}
