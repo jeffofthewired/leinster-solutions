@@ -9,17 +9,17 @@
         Find a universal property satisfied by the space $I(S)$.
     }
 
-    Define $i:S\to I(S)$ as the identity function.\\
-    The universal property is as follows:
+    Define $i:I(S)\to S$ as the identity map.\\
+    The universal property for $(I(S), i)$ is as follows:
 
-    For all topological spaces $X$, for all functions $f:X\to S$,\\
+    For all topological spaces $X$, for all set maps $f:X\to S$,\\
     there exists a unique continuous function $\tilde f: X\to I(S)$
-    such that $\tilde f = i\circ f$.
+    such that $f = i\circ \tilde f$.
 
     \begin{center}
-        \begin{tikzcd}
-            \forall X \rar{\forall f}\drar[dotted, "\exists !\tilde f"description] & S\dar{i}\\
-            & I(S)
+        \begin{tikzcd}[column sep=large]
+            \forall X \rar[dotted, "\exists !\tilde f"description]\drar["\forall f"'] & I(S)\dar{i}\\
+            & S
         \end{tikzcd}
     \end{center}
 
@@ -27,10 +27,9 @@
         \textbf{Extension:} Prove that $(I(S), i)$ satisfies this universal property.
     }
 
-    It suffices to show that $\tilde f = i\circ f$ is a continuous map.
-    The topology on $I(S)$ is $\{\emptyset, S\}$.\\
-    The $\tilde f$-preimage of $\emptyset$ is $\emptyset$ which is open.
-    The $\tilde f$-preimage of $S$ is $X$ which is open.
+    For existence, let $\tilde f = f$, as $f = i\circ f$. Every map to $I(S)$ is continuous, thus $\tilde f$ is continuous.
+    For uniqueness, supposing $\tilde g = f$ also satisfies $f = i\circ g = i\circ f$, then $g = f$
+    since the identity map $i$ is bijective.
 
     \textcolor{question}{
         \textbf{Extension:} Prove that any other object satisfying the property is isomorphic to $I(S)$.
@@ -39,23 +38,49 @@
     Suppose that $(T,j)$ is another pair which satisfies the universal property.
 
     Since $(T,j)$ satisfies the universal property, for all $X$ and $f:X\to S$,\\
-    namely $I(S)$ and $g:I(S)\to S$, the composition $j\circ g:I(S)\to T$ is continuous.
+    namely $I(S)$ and $i:I(S)\to S$, there exists a unique continuous $h:I(S)\to T$\\
+    such that $i=j\circ h$.
 
-    \textcolor{red}{I might try specifying $g = i$?}
+    
+    \begin{center}
+        \begin{tikzcd}
+            I(S)\rar{h}\drar[leftrightarrow, "i"'] & 
+            T\dar{j}\\
+            &
+            S
+        \end{tikzcd}
+    \end{center}
 
     Since $(I(S),i)$ satisfies the universal property, for all $X$ and $f:X\to S$,\\
-    namely $T$ and $f:T\to S$, the composition $i\circ f:T\to I(S)$ is continuous.
+    namely $I(S)$ and $i:I(S)\to S$, there exists a unique continuous $\tilde f:I(S)\to I(S)$\\
+    such that $i = i\circ \tilde f$.
 
-    Since compositions of continuous maps are continuous, the maps
-    $$i\circ f\circ j\circ g: I(S)\to I(S) \qquad\text{and}\qquad j\circ g\circ i\circ f:T\to T,$$
-    are continuous.
+    Note that $i\circ j\circ h: I(S)\to I(S)$ is continuous since the composition of
+    continuous maps is also continuous. Since $i$ is the identity map,
+    this can be shortened to $j\circ h$.
+    We also know that setting $\tilde f=j\circ h$ satisfies $i=i\circ \tilde f$.
+    The identity map on $I(S)$ also satisfies this.\\
+    By uniqueness, $j\circ h$ is the identity map.
 
-    \textcolor{red}{
-        If we specify $g=i$ then we have than
-        $f\circ j: I(S)\to I(S)$ and $j\circ f: T\to T$ are continuous.
-    }
+    Similarly $h\circ (i\circ j):T\to T$ is continuous, which this shortens to $h\circ j$.
 
-    \textcolor{red}{Stuck on this question...}
+    Since $(T,j)$ satisfies the universal property, for all $X$ and $f:X\to S$,\\
+    namely $T$ and $j:T\to S$, there exists a unique continuous $\tilde f:T\to T$\\
+    such that $j = j\circ \tilde f$.
+
+    Note that $j\circ (h\circ j) = (j\circ h)\circ j = i\circ j = j$, thus $\tilde f = h\circ j$
+    satisfies this property. But the identity map on $T$ also satisfies it.
+    By uniqueness $h\circ j$ is the identity map.\\
+    Therefore $T\cong I(S)$.
+    
+
+    % \begin{tikzcd}
+    %     T\rar{j}\drar["j"'] & 
+    %     I(S)\dar[leftrightarrow]{i}\rar{h} & 
+    %     T\\
+    %     &
+    %     S\urar[leftarrow, "j"']
+    % \end{tikzcd}
 
 
     \pagebreak
